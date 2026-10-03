@@ -2,34 +2,35 @@ PHIẾU CÁ NHÂN — DAY 14
 Điền file này, chạy QC vào submission/qc-j01 và submission/qc-practice, commit rồi nộp link repo.
 Không dán ảnh, toạ độ điểm hay nội dung file export vào đây.
 
-Họ tên / mã học viên:
-Object J01 (a/b/c/d theo docs/cases.md) / track ID trong task J01:
-Phiên bản CVAT / overlay đã bật (có/không):
+Họ tên / mã học viên: Nguyễn Hữu Tài / 2A202602297
+Link repo: https://github.com/tainguyenhuu2509-droid/K4-L2L3-Day14-2A202602297-NguyenHuuTai-Robotaxi-Tracking-Fusion-Student.git
+Object J01 (a/b/c/d theo docs/cases.md) / track ID trong task J01: J01-d / 0 và 1
+Phiên bản CVAT / overlay đã bật (có/không): CVAT 2.74.1 / không
 
 J01 — TRACK LÕI
-Frame fit và lý do:
-L / W / H (m):
-Keyframe quan trọng và lý do:
-Đã bấm F qua đủ frame 0–65 (có/không):
-Đoạn thưa / che khuất / dễ nhầm identity:
+Frame fit và lý do: với ID 0 lấy frame pointcloud/1772259107-499835253.pcd; đối với ID 1 lấy frame pointcloud/1772259101-299741268.pcd; lý do: tại các frame này point cloud dày và hiển thị rõ nét gần như đầy đủ đặc biệt là với ID 1, hai xe cũng cùng model (dựa vào camera xác nhận điều này) nên có thể dựa vào đây để xác định kích thước
+L / W / H (m):ID 0 : 4.17/2.21/1.65; ID 1 : 4.17/2.21/1.65
+Keyframe quan trọng và lý do: với ID 0 là pointcloud/1772259100-099741459.pcd và pointcloud/1772259103-299843311.pcd do ở các frame ban đầu này, xe bị khuất 1 phần ở phía sau xe, cần chỉnh định đúng hướng xe; đối với ID 1 là pointcloud/1772259109-899782419.pcd và pointcloud/1772259111-299740314.pcd do ở các frame cuối này, xe này đang tiến ra xe, các điểm point cloud vô cùng thưa thớt.
+Đã bấm F qua đủ frame 0–65 (có/không): có
+Đoạn thưa / che khuất / dễ nhầm identity: ID 0: từ frame pointcloud/1772259100-099741459.pcd đến pointcloud/1772259103-299843311.pcd/ không có/ không có; ID 1: từ frame pointcloud/1772259108-699793339.pcd đến pointcloud/1772259111-099739313.pcd/ từ pointcloud/1772259111-299740314.pcd đến hết/ từ pointcloud/1772259111-299740314.pcd đến hết
 
 SELF-QC (từ qc_tracks.csv / qc_flags.csv)
-Lần QC đầu — cờ của track J01 (loại, frame):
-Quyết định cho từng cờ (sửa / giữ vì hợp lệ / chưa đủ evidence) và lý do:
-Đã sửa gì sau QC đầu; QC cuối còn cờ nào:
-Nhận xét của bạn cùng cặp và bạn đồng ý/không đồng ý vì sao:
+Lần QC đầu — cờ của track J01 (loại, frame): Không có cờ QC nào đối với track J01 (track ID 0); qc_flags.csv không có cảnh báo.
+Quyết định cho từng cờ (sửa / giữ vì hợp lệ / chưa đủ evidence) và lý do: Không có cờ để xử lý. QC lần đầu không phát hiện dimension drift, orientation drift, position jump hoặc gap đối với track J01.
+Đã sửa gì sau QC đầu; QC cuối còn cờ nào: sau QC đầu, tôi sửa ID 0 từ frame pointcloud/1772259100-699740410.pcd đến pointcloud/1772259103-299843311.pcd, chỉnh lại orientation của cuboid
+Nhận xét của bạn cùng cặp và bạn đồng ý/không đồng ý vì sao: Bạn cùng cặp nhận xét cuboid hơi lệch khỏi xe ở một số frame; tôi đồng ý và sẽ kiểm tra lại các frame đó.
 
 CAMERA–LIDAR (overlay trên image_1)
-Ca bình thường (frame / quan sát):
-Ca khó (frame / quan sát 2D / quan sát 3D):
+Ca bình thường (frame / quan sát): ID 1 13 frame đầu / quan sát thấy rõ trên cả 2D và 3D
+Ca khó (frame / quan sát 2D / quan sát 3D): ID 1 frame 40 đến 65 / quan sát 2D thấy xe chỉ lộ 1 phần nhỏ do bị xe đằng trước che khuất / quan sát trên 3D thấy từ frame 40 đến 56 vẫn sót 1 vài clound point cho phép xác định vị trí, từ frame 57 trở đi gần như không thể
 Giả thuyết nguyên nhân (annotation / FOV / occlusion / sparse / nghi calibration / chưa đủ evidence):
-Hành động (sửa / giữ / báo Lab Coach) và lý do:
+Hành động (sửa / giữ / báo Lab Coach) và lý do: giữ, lý do là vẫn xác định được rõ xe đằng trước nên dựa vào các ảnh 2D có thể xác định ví trí xe này
 
 CASE NGẮN (task practice)
-Case → track ID (ví dụ B01 → 3):
-Case đã xong:
-Case đang dở / chỗ kẹt:
-fragmentation_suspect ở đầu/cuối case đã kiểm là do cách cắt case (có/không):
+Case → track ID (ví dụ B01 → 3): B01 -> 0; B02 -> 2; B03 -> 3
+Case đã xong: B01, B02, B03
+Case đang dở / chỗ kẹt: Không có case đang dở
+fragmentation_suspect ở đầu/cuối case đã kiểm là do cách cắt case (có/không): có
 
 THỜI GIAN
-J01 / case ngắn / QC và fusion:
+J01 / case ngắn / QC và fusion: 59 phút/ 23 phút / 47 phút
